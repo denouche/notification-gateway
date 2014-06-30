@@ -1,5 +1,5 @@
 {
-    "name": "torrent-dashboard",
+    "name": "notification-gateway",
     "version": "0.0.1",
     "author": "denouche",
     "dependencies": {
