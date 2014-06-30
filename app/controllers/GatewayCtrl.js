@@ -11,7 +11,7 @@ var Sms = require('../services/Sms'),
 module.exports = function (app) {
 	
     app.post('/notification/:type', function (req, res) {
-        var tmp = JSON.parse(JSON.stringify(req.body);
+        var tmp = JSON.parse(JSON.stringify(req.body));
         tmp.recipient = 'antoine.leveugle@gmail.com';
         tmp.subject = '[NOTIFICATION] ' + tmp.subject;
         Email.send(tmp);
