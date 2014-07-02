@@ -7,6 +7,11 @@ var express = require('express'),
     bodyParser = require('body-parser');
 
 apiApp.use(bodyParser.json());
+apiApp.all('/*', function (req, res, next) {
+    logger.log(req.method + ' ' + req.url);
+    next();
+});
+
 
 var controllers = requireDir(__dirname + '/controllers', {recurse: true});
 
