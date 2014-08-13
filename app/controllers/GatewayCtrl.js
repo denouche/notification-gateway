@@ -10,12 +10,17 @@ var logger = require('util'),
 module.exports = function (app) {
 	
     app.post('/notification/:type', function (req, res) {
-        senders[req.params.type].send(req.body).then(function (value) {
-            res.send(200);
-        }, function (reason) {
-            logger.error("error", reason);
+        if(req.params.type && senders[req.params.type]) {
+            senders[req.params.type].send(req.body).then(function (value) {
+                res.send(200);
+            }, function (reason) {
+                logger.error("error", reason);
+                res.send(500);
+            });
+        }
+        else {
             res.send(500);
-        });
+        }
     });
 
 };
