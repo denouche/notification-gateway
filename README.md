@@ -14,5 +14,5 @@ To send SMS this application will use the "gammu" command, so you need to instal
 Email
 -----
 
-To send emails this application will use mutt, so you need to install it and to configure it correctly for the user which will run the application.
+To send emails this application will use the "mutt" command, so you need to install it and to configure it correctly for the user which will run the application.
 
