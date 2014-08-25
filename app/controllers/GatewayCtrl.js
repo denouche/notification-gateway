@@ -14,7 +14,8 @@ module.exports = function (app) {
             senders[req.params.type].send(req.body).then(function (value) {
                 res.send(200);
             }, function (reason) {
-                logger.error("error", reason);
+                logger.error("error");
+                logger.error(reason);
                 res.send(500);
             });
         }

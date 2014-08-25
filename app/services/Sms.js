@@ -8,10 +8,15 @@ function send(message) {
     var command = "echo '" + message.message + "' | gammu --sendsms TEXT " + message.recipient,
         deferred = q.defer();
 
+    if(message.flash) {
+        command += ' -flash'
+    }
+
     var child = exec(command, function (error, stdout, stderr) {
         if (error !== null) {
             logger.error('exec error: ' + error);
             logger.error('exec stderr: ' + stderr);
+            logger.error('exec stdout: ' + stdout);
             deferred.reject(new Error(error));
         }
         else {
