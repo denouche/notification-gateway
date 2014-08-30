@@ -3,7 +3,8 @@
 var logger = require('util'),
     senders = {
         sms: require('../services/Sms'),
-        email: require('../services/Email')
+        email: require('../services/Email'),
+        monitoring: require('../services/Monitoring')
     };
 
 
