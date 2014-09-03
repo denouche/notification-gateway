@@ -5,7 +5,7 @@ var exec = require('child_process').exec,
     q = require('q');
 
 function send(message) {
-    var command = "echo '" + message.message + "' | gammu --sendsms TEXT " + message.recipient,
+    var command = "echo '" + message.message + "' | gammu --sendsms TEXT " + message.recipient + " -autolen " + message.message.length,
         deferred = q.defer();
 
     if(message.flash) {
