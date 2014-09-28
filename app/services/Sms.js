@@ -2,10 +2,11 @@
 
 var exec = require('child_process').exec,
     logger = require('util'),
-    q = require('q');
+    q = require('q'),
+    jsStringEscape = require('js-string-escape');
 
 function send(message) {
-    var command = "echo '" + message.message + "' | gammu --sendsms TEXT " + message.recipient + " -autolen " + message.message.length,
+    var command = "echo '" + jsStringEscape(message.message) + "' | gammu --sendsms TEXT " + message.recipient + " -autolen " + message.message.length,
         deferred = q.defer();
 
     if(message.flash) {
