@@ -5,7 +5,9 @@ var exec = require('child_process').exec,
     q = require('q');
 
 function send(message) {
-    var command = "echo '" + message.message + "' | mutt -s '" + message.subject + "' " + message.recipient,
+    var text = message.message.replace("'", "'\\''"),
+        subject = message.subject.replace("'", "'\\''"),
+        command = "MESSAGE='" + text + "'; SUBJECT='" + subject + "'; echo \"$MESSAGE\" | mutt -s \"$SUBJECT\" " + message.recipient,
         deferred = q.defer();
 
     var child = exec(command, function (error, stdout, stderr) {
