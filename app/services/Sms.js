@@ -17,6 +17,7 @@ function send(message) {
             logger.error('exec error: ' + error);
             logger.error('exec stderr: ' + stderr);
             logger.error('exec stdout: ' + stdout);
+            logger.error('exec command was: ' + command);
             deferred.reject(new Error(error));
         }
         else {
