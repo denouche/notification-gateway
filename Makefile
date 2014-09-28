@@ -11,7 +11,7 @@ install:
 	npm install
 
 prod: clean install
-	sudo service pm2-init.sh reload
+	sudo service pm2-init.sh restart
 	sudo service pm2-init.sh status
 
 
