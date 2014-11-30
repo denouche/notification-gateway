@@ -5,7 +5,7 @@ var exec = require('child_process').exec,
     q = require('q');
 
 function send(message) {
-    var text = message.message.replace("'", "'\\''"),
+    var text = message.message.replace(/'/g, "'\\''"),
         command = "MESSAGE='" + text + "'; echo \"$MESSAGE\" | gammu --sendsms TEXT " + message.recipient + " -autolen " + text.length,
         deferred = q.defer();
 

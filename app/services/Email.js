@@ -5,8 +5,8 @@ var exec = require('child_process').exec,
     q = require('q');
 
 function send(message) {
-    var text = message.message.replace("'", "'\\''"),
-        subject = message.subject.replace("'", "'\\''"),
+    var text = message.message.replace(/'/g, "'\\''"),
+        subject = message.subject.replace(/'/g, "'\\''"),
         command = "MESSAGE='" + text + "'; SUBJECT='" + subject + "'; echo \"$MESSAGE\" | mutt -s \"$SUBJECT\" " + message.recipient,
         deferred = q.defer();
 
