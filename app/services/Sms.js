@@ -6,7 +6,7 @@ var exec = require('child_process').exec,
 
 function send(message) {
     var text = message.message.replace(/'/g, "'\\''"),
-        command = "MESSAGE='" + text + "'; echo \"$MESSAGE\" | gammu --sendsms TEXT " + message.recipient + " -autolen " + text.length,
+        command = "MESSAGE='" + text + "'; echo \"$MESSAGE\" | gammu-smsd-inject TEXT " + message.recipient + " -autolen " + text.length,
         deferred = q.defer();
 
     if(message.flash) {
