@@ -20,7 +20,7 @@ Examples
 --------
 
 ```
-curl -s -X POST -H 'Content-Type: application/json' --data '{"message":"Hello, World!", "recipient":"0649810250"}' http://127.0.0.1:3000/notification/sms
+curl -s -X POST -H 'Content-Type: application/json' --data '{"message":"Hello, World!", "recipient":"0607080900"}' http://127.0.0.1:3000/notification/sms
 ```
 
 ```
